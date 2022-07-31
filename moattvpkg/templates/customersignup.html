@@ -1,0 +1,55 @@
+{% extends 'moattvhome.html'%}
+{% block title%} Signup {% endblock %}
+
+{% block statement %}
+    <h1 class="mb-2 text-info display-4">Customer Signup Form</h1>
+    <p class="lead">
+        Hi there, please ensure that all details are filled out appropriately.
+    </p>
+{% endblock %}
+
+
+
+{% block form %}
+<div class="btn-group d-flex">
+    <a href="/moattvlogin" class="btn btn-lg btn-outline-info d-inline-block">Login</a>
+    <a href="/moathome" class="btn btn-lg btn-info d-inline-block">Home</a>
+</div>
+{% set msg = get_flashed_messages(with_categories=True) %}
+{% if msg %}
+{% for i in msg %}
+{% if i[0] == 'email' %}
+<p class="alert alert-warning my-3">{{i[1]}}</p>
+{% else %}
+<p class="alert alert-danger my-3">{{i[1]}}</p>
+{% endif %}
+{% endfor %}
+{% endif %}
+    <form action="/moatsubmitted" method="post">
+        <div class="form-floating my-3">
+            <input type="text" name="firstname" id="firstname" placeholder="First name" class="form-control form-control-lg bg-outline-info text-info" style="background-color:rgba(0, 0,0, 0.5);border: 1px solid #17A2B8; color:#17A2B8;">
+            
+        </div>
+        <div class ="form-floating mb-3">
+            <input type="text" name="lastname" id="lastname" placeholder="Last name" class="form-control form-control-lg bg-outline-info text-info" style="background-color:rgba(0, 0,0, 0.5);border: 1px solid #17A2B8; color:#17A2B8;">
+           
+        </div>
+        <div class ="form-floating mb-3">
+            <input type="email" name="email" id="email" placeholder="Email address" class="form-control form-control-lg bg-outline-info text-info" style="background-color:rgba(0, 0,0, 0.5);border: 1px solid #17A2B8; color:#17A2B8;">
+            
+        </div>
+        <div class ="form-floating mb-3">
+            <input type="tel" name="phone" id="phone" placeholder="Phone number, no +234" class="form-control form-control-lg bg-outline-info text-info" style="background-color:rgba(0, 0,0, 0.5);border: 1px solid #17A2B8; color:#17A2B8;">
+           
+        </div>
+        <div class ="form-floating mb-3">
+            <input type="password" name="pswd1" id="pswd1" placeholder="Enter preferred password" class="form-control form-control-lg bg-outline-info text-info" style="background-color:rgba(0, 0,0, 0.5);border: 1px solid #17A2B8; color:#17A2B8;">
+        </div>
+        <div class ="form-floating mb-3">
+            <input type="password" name="pswd2" id="pswd2" placeholder="Confirm password" class="form-control form-control-lg bg-outline-info text-info" style="background-color:rgba(0, 0,0, 0.5);border: 1px solid #17A2B8; color:#17A2B8;">
+        </div>
+        <div class="d-flex btn-group">
+        <button class="btn btn-lg btn-info">Submit</button>
+        </div>
+    </form>
+{% endblock%}

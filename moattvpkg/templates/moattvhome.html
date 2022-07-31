@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>MOATTv|{% block title %}home{% endblock %}</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{{url_for('static',filename='css/scrolling-nav.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class = "container-fluid bg-dark text-white vh100 moattv">
+        <div class="row vh100 overlay">
+            <div class="col d-flex p-5">
+                <div class="col-5 p-4">
+                    <h1 class="mb-5 text-info display-3"> MOAT tv</h1>
+                    {% block statement%}
+                    <p class="lead">
+                        Welcome to MOAT tv.
+                    </p>
+                    
+                    <p class="lead">
+                        
+                        Our application is still under construction and it will be be live soon.
+                        However, please feel free to login or signup to send your complaints and we will
+                        get back to you as soon as possible. 
+                        
+                    </p>
+                    {% endblock %}   
+                </div>
+                <div class="col-7 p-5">
+                    {% block form %}
+                    <div class="mb-3 d-flex justify-content-center btn-group">
+                        <a href="/moattvlogin" class="btn btn-lg btn-info d-inline-block">Login</a>
+                        <a href="/moattvsignup" class="btn btn-lg btn-outline-info d-inline-block">Signup</a>
+                    </div>
+                    <div>
+                        <img src="{{url_for('static',filename='images/suit4.gif')}}" alt="Astronaut">
+                    </div>
+                    {% endblock %}
+                </div>
+            </div>    
+        </div>
+        
+        
+    
+        <!-- Footer -->
+        <footer class="py-2 bg-dark">
+            <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Developed by me</p>
+            </div>
+            <!-- /.container -->
+        </footer>
+    </div>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{{url_for('static',filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{{url_for('static',filename='js/scrolling-nav.js')}}"></script>
+
+</body>
+
+</html>

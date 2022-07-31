@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>MOATTv|Admin</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{{url_for('static',filename='css/scrolling-nav.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class = "container-fluid bg-dark text-white vh100 moattv">
+        <div class="row vh100 overlay">
+            <div class="colp-5"> 
+                <div class="col p-4">
+                    <h1 class="mb-5 text-info display-3"> MOAT tv</h1>
+                    <h1 class="mb-2 text-info display-4">Admin Login</h1>
+                    <p class="lead">
+                        Hi there, please ensure that all details are filled out appropriately.
+                    </p>
+
+                    <a href="/report" class="btn btn-lg btn-outline-info">View Customers' comments</a>  
+                </div>
+                <div class="col p-5">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>S/N</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email Address</th>
+                                <th>Phone number</th>
+                                <th>Comment</th>
+                                <th>Comment type</th>
+                                <th>Department</th>
+                                <th>Time Posted</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for a in admins %}
+                                <tr>
+                                    <td>{{loop.index}}</td>
+                                    <td>{{a[0]|capitalize}}</td>
+                                    <td>{{a[1]|capitalize}}</td>
+                                    <td>{{a[2]}}</td>
+                                    <td>{{a[3]}}</td>
+                                    <td>{{a[4]}}</td>
+                                    <td>{{a[5]}}</td>
+                                    <td>{{a[6]}}</td>
+                                    <td>{{a[7]}}</td>
+                                </tr>
+                                {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>    
+        </div>
+        
+        
+    
+        <!-- Footer -->
+        <footer class="py-2 bg-dark">
+            <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Developed by me</p>
+            </div>
+            <!-- /.container -->
+        </footer>
+    </div>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{{url_for('static',filename='vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{url_for('static',filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="{{url_for('static',filename='vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="{{url_for('static',filename='js/scrolling-nav.js')}}"></script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+{% extends 'moattvhome.html'%}
+{% block title%} Login {% endblock %}
+
+{% block statement %}
+
+    <h1 class="mb-2 text-info display-4">Customer Login</h1>
+    <p class="lead">
+        Hi there, please ensure that all details are filled out appropriately.
+    </p>
+
+    {% set msg = get_flashed_messages(with_categories=True) %}
+    {% if msg %}
+    {% for i in msg%}
+    {% if i[0] == 'success'%}
+    <p class="alert alert-success">{{i[1]}}</p>
+    {% else %}
+    <p class="alert alert-danger">{{i[1]}}</p>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+{% endblock %}
+
+
+{% block form %}
+<div class="d-flex btn-group">
+    <a href="/moattvsignup" class="btn btn-lg btn-outline-info">Signup</a>
+    <a href="/moathome" class="btn btn-lg btn-info">Home</a>
+</div>
+    <form action="/moatsubmittedlogin" method="post">
+        <div class="form-floating my-3">
+            <input type="email" name="email" id="user" placeholder="Email address" class="form-control form-control-lg bg-outline-info text-info" style="background-color:rgba(0, 0,0, 0.5);border: 1px solid #17A2B8; color:#17A2B8;">
+        </div>
+        <div class="form-floating my-3">
+            <input type="password" name="pswd1" id="pswd1" placeholder="Password" class="form-control form-control-lg bg-outline-info text-info" style="background-color:rgba(0, 0,0, 0.5);border: 1px solid #17A2B8; color:#17A2B8;">
+        </div>
+        <div class="d-flex btn-group">
+            <button class="btn btn-lg btn-outline-info">Login</button>
+        </div>
+    </form>
+{% endblock %}
